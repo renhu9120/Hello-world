@@ -6,6 +6,22 @@ Topic: 练习2：设计一个函数产生指定长度的验证码，验证码由
 import random
 
 
+def get_suffix(filename, has_dot=False):
+    """
+    获取文件名的后缀名
+
+    :param filename: 文件名
+    :param has_dot: 返回的后缀名是否需要带点
+    :return: 文件的后缀名
+    """
+    pos = filename.rfind('.')
+    if 0 < pos < len(filename) - 1:
+        index = pos if has_dot else pos + 1
+        return filename[index:]
+    else:
+        return ''
+
+
 def gencode(m=4):
     array = []  # initial array
     res_array = []
@@ -22,10 +38,13 @@ def gencode(m=4):
 
     return res_array
 
+
 def main():
     x = gencode()
     print("The result:")
     print(x)
+    w = get_suffix('README.txt')
+    print(w)
 
 
 if __name__ == '__main__':
