@@ -39,12 +39,66 @@ def gencode(m=4):
     return res_array
 
 
+def max2array(array=None):
+    if array is None:
+        array = []  # initial function
+
+    k = 0
+    for i in range(len(array)):
+        if k < array[i]:
+            k = array[i]
+    return k
+
+import os
+
+
+def print_board(board):
+    print(board['TL'] + '|' + board['TM'] + '|' + board['TR'])
+    print('-+-+-')
+    print(board['ML'] + '|' + board['MM'] + '|' + board['MR'])
+    print('-+-+-')
+    print(board['BL'] + '|' + board['BM'] + '|' + board['BR'])
+
 def main():
+    """
+    #D7_P2
     x = gencode()
     print("The result:")
     print(x)
+
+    #D7_P3
     w = get_suffix('README.txt')
     print(w)
+
+    # D7_P4
+    arr = [];
+    for i in range(4):
+        arr += [random.random()]
+    maxnum = max2array(arr)
+    print(arr)
+    print(maxnum)
+
+    # D7_L2
+    Pos = []
+    for i in range(1, 31):
+        Pos += [i]
+
+    count = 0
+    i = 0
+    j = 0
+    while count < 15:
+        if Pos[j] != 0:
+            i += 1
+            if i % 9 == 0:
+                Pos[j] = 0
+                count += 1
+                print("Pos = ", Pos)
+        j += 1
+        j = j % 30
+
+    """
+
+
 
 
 if __name__ == '__main__':
